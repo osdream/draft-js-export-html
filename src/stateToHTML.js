@@ -200,7 +200,7 @@ class MarkupGenerator {
     let customRenderer = (blockRenderers != null && blockRenderers.hasOwnProperty(blockType)) ?
       blockRenderers[blockType] :
       null;
-    let customRendererOutput = customRenderer ? customRenderer(block) : null;
+    let customRendererOutput = customRenderer ? customRenderer(block, this.renderBlockContent(block)) : null;
     // Renderer can return null, which will cause processing to continue as normal.
     if (customRendererOutput != null) {
       this.output.push(customRendererOutput);
